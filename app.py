@@ -132,14 +132,6 @@ class MainWindow(QMainWindow):
                         "created_on": datetime.strftime(info.get("created_on"), "%H:%M")
                     })
         self._filter_skus()
-        # self.show_loader()
-
-    # def clear_panel(self):
-    #     try:
-    #         while ((child := self.selectedPanel.takeAt(0)) != None):
-    #             child.widget().deleteLater()
-    #     except Exception as e :
-    #         print(e)
 
     def handle_tab_click(self, currentIndex, *args, **kwargs):
         # self.clear_panel()
@@ -198,14 +190,6 @@ class MainWindow(QMainWindow):
 
         with MongoDb() as mdb:
             con = mdb.connection()
-            # with ThreadPoolExecutor(10) as executor:
-            #     futures = [ executor.submit(self.__populate_db, id, con) for id in range(total_no_of_img) ]
-            #     wait(futures)
-            # for row in range(10):
-            #     for col in range(5):
-            #         image = ImageFrame(self.sku_items_list[(row+col)%10], 150, 100)
-            #         self.grid_layout.addWidget(image, row, col)
-
             for id in range(100):
                 cls.__populate_db(sku, int(id), con, bimg, gimg)
 
