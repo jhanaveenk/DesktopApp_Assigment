@@ -4,7 +4,7 @@ import os
 from dotenv import load_dotenv
 from PySide2.QtWidgets import QApplication, QSizePolicy, QLabel, QComboBox, QMenuBar, QMenu, QPushButton, QFrame,  QWidget, QMainWindow, QTabWidget, QVBoxLayout, QHBoxLayout
 from PySide2.QtCore import QSize, Qt, QByteArray,Signal, QThread, QTimer, QTime, QEventLoop
-from matplotlib.backends.backend_qt5agg import FigureCanvas
+from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg
 from matplotlib.figure import Figure
 import numpy as np
 import matplotlib.pyplot as plt
@@ -13,7 +13,7 @@ from PySide2.QtGui import QPixmap, QMovie
 import os
 import time
 
-from ui.components.molecules.loader.loader import Loader
+# from ui.components.molecules.loader.loader import Loader
 load_dotenv()
 DB_LINK = str(os.getenv("DB"))  
 
