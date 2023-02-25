@@ -23,7 +23,7 @@ Image Gallery Tab:
 
 # SetUp Instructions:
 
-In this project we have used mongodb database, and PyQt5 for UI designing and python 3.
+In this project we have used mongodb database, and PySide2 for UI designing and python3.
 
 - To setup the database, first we have to install pymongo for updating and retrieving data.
 - This repository has a "setup.py" file which generates the database with the random values.
