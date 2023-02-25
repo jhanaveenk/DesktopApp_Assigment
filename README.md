@@ -30,5 +30,5 @@ In this project we have used mongodb database, and PyQt5 for UI designing and py
 - We have to use this syntax in python installed terminal: run python3 setup.py
 - This creates the database for different SKU's with different status and time stamp.
 - Once the data is generated, we can use the switchOn tool, to run the tool we have run the above command:
-python app.py
+python3 app.py
 
