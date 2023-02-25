@@ -106,13 +106,9 @@ class AnalyticsPanel(QWidget):
                 label_dict[item.get("created_on")][item.get("status")] += 1
 
 
-        # print(label_dict.items() ) 
         N = len(label_dict.items())
         bad_sku = tuple(map(lambda item : item[1].get("bad"), label_dict.items()))
         good_sku = tuple(map(lambda item : item[1].get("good"), label_dict.items()))
-        # print(len(bad_sku), len(good_sku))
-        # badStd = (1, 2, 3)
-        # goodStd = (1, 2, 3)
         ind = np.arange(N)
         width = 0.30
 
@@ -120,19 +116,14 @@ class AnalyticsPanel(QWidget):
         p2 = self.chart_widget.axes.bar(ind, bad_sku, width)
         p1 = self.chart_widget.axes.bar(ind, good_sku, width, bottom = bad_sku)
 
-        # self.chart_widget.axes.yl ('Contribution')
-        # self.chart_widget.axes.title('Contribution by the teams')
         self.chart_widget.axes.set_xticks(ind, tuple( map(lambda item : item[0], label_dict.items())) )
-        # self.chart_widget.axes.set_yticks(np.arange(0, 81, 10))
         self.chart_widget.axes.legend((p1[0], p2[0]), ('good', 'bad'))
 
 
 
     def handle_menu_index_change(self, current_index, *args, **kwargs):
         self.set_current_sku(current_index+1)
-        # print(self.parent().current_sku)
         self.filter_skus()
-        # print("self.parent._sku_list",self.parent._sku_list)
         self.render(current_index + 1)
 
 

@@ -32,13 +32,10 @@ class MainWindow(QMainWindow):
         self.main_widget = QWidget()
         self.container = QVBoxLayout(self.main_widget)
         self.setCentralWidget(self.main_widget)
-        # self.setCentralWidget(self.loader)
-        # self.load_data()
         self.loader = Loader()
         self.__get_data()
         
         self.add_tabs()
-        # self._filter_skus()
 
     def show_loader(self):
         if self.loader.isVisible():
@@ -88,9 +85,7 @@ class MainWindow(QMainWindow):
 
         self.tabs.currentChanged.connect(self.handle_tab_click)
         self.tab_panel = QFrame(self.main_widget)
-        # self.tab_panel.setStyleSheet("""" background : white; """)
         self.tab_panel.setObjectName(u"tabPanel")
-        # self.tab_panel.setMaximumSize(QSize(500, 600))
         self.tab_panel.setFrameShape(QFrame.NoFrame)
         self.tab_panel_layout = QStackedLayout(self.tab_panel)
 
@@ -132,19 +127,9 @@ class MainWindow(QMainWindow):
                         "created_on": datetime.strftime(info.get("created_on"), "%H:%M")
                     })
         self._filter_skus()
-        # self.show_loader()
-
-    # def clear_panel(self):
-    #     try:
-    #         while ((child := self.selectedPanel.takeAt(0)) != None):
-    #             child.widget().deleteLater()
-    #     except Exception as e :
-    #         print(e)
 
     def handle_tab_click(self, currentIndex, *args, **kwargs):
-        # self.clear_panel()
         if currentIndex == 1:
-            # self.selectedPanel.removeWidget(self.currentPanel)
             self.tab_panel_layout.setCurrentIndex(currentIndex)
             self.current_panel = self.panel2
         else:
@@ -198,13 +183,7 @@ class MainWindow(QMainWindow):
 
         with MongoDb() as mdb:
             con = mdb.connection()
-            # with ThreadPoolExecutor(10) as executor:
-            #     futures = [ executor.submit(self.__populate_db, id, con) for id in range(total_no_of_img) ]
-            #     wait(futures)
-            # for row in range(10):
-            #     for col in range(5):
-            #         image = ImageFrame(self.sku_items_list[(row+col)%10], 150, 100)
-            #         self.grid_layout.addWidget(image, row, col)
+
 
             for id in range(100):
                 cls.__populate_db(sku, int(id), con, bimg, gimg)

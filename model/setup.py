@@ -18,7 +18,7 @@ load_dotenv()
 DB_LINK = str(os.getenv("DB"))  
 
 class MongoDb:
-    def __init__(self, host : str = "localhost", port : int = 27017,  db : str= "SWITCHON", collection : str = "naveenswitchon") -> None:
+    def __init__(self, db : str= "SwitcOn", collection : str = "Naveen_SwitchOn") -> None:
         self.__cluster = MongoClient()
         self.__db = self.__cluster[db]
         self.__collection = self.__db[collection]
